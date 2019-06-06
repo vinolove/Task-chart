@@ -25,11 +25,12 @@ export class LineChart extends React.Component {
     height: window.innerHeight,
     margin: 20,
     data: [
-      {a: 1, b: 3},
+      {a: 0, b: 5},
+      {a: 1, b: 4},
       {a: 2, b: 6},
-      {a: 3, b: 2},
-      {a: 4, b: 12},
-      {a: 5, b: 8}
+      {a: 3, b: 8},
+      {a: 4, b: 1},
+      {a: 5, b: 11}
     ]
   }
     render() {
