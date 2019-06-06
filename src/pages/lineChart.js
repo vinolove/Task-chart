@@ -52,14 +52,10 @@ export class LineChart extends React.Component {
         .x(d => x(d.a))
         .y(d => y(d.b))
         .curve(d3.curveCatmullRom.alpha(0.5)) //curve line
-
-      x.ticks(4).map(d=>{
-        console.log('d',d)
-      })
        
-      const xTicks = x.ticks(6).map(d => (
+      const xTicks = x.ticks(6).map((d,i) => (
           x(d) > margin && x(d) < w ? 
-            <g transform={`translate(${x(d)},${h + margin})`}>  
+            <g key={i} transform={`translate(${x(d)},${h + margin})`}>  
               <StyledText>{xFormat(d)}</StyledText>
               <StyledLine x1='0' x1='0' y1='0' y2='5' transform="translate(0,-20)"/>
               <GridLine   y1='0' y2={-(h-margin)} x1='0' x2='0' transform="translate(0,-20)"/> 
@@ -67,9 +63,9 @@ export class LineChart extends React.Component {
           : null
       ))
   
-      const yTicks = y.ticks(5).map(d => (
+      const yTicks = y.ticks(5).map((d,i) => (
           y(d) > 10 && y(d) < h ? 
-            <g transform={`translate(${margin},${y(d)})`}>  
+            <g key={i} transform={`translate(${margin},${y(d)})`}>  
               <StyledText x="-12" y="5">{xFormat(d)}</StyledText>
               <StyledLine x1='0' x1='5' y1='0' y2='0' transform="translate(-5,0)"/>
               <GridLine   x1='0' x1={w - margin} y1='0' y2='0' transform="translate(-5,0)"/> 
